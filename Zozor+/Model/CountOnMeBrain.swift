@@ -9,7 +9,6 @@
 import UIKit
 
 protocol CountOnMeDelegate {
-    func updateTextView(label: String)
     func alertShow(title: String, message: String)
 }
 
@@ -68,8 +67,6 @@ class CountOnMeBrain {
                 }
             }
         }
-        countOnMeDelegate?.updateTextView(label: "=\(total)")
-       // textView.text = textView.text + "=\(total)"
         clear()
     }
     
@@ -105,8 +102,7 @@ class CountOnMeBrain {
             // Add number
             text += stringNumber
         }
-        countOnMeDelegate?.updateTextView(label: text)
-       //textView.text = text
+        //textView.text = text
     }
 }
 

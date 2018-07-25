@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        countOnMeBrain.countOnMeDelegate = self
     }
     
     //MARK: - Action
@@ -41,15 +41,16 @@ class ViewController: UIViewController {
     
     @IBAction func equal() {
         countOnMeBrain.calculateTotal()
+        textView.text = textView.text + "=\(countOnMeBrain.total)"
     }
     
     //MARK: - Methods
+    
+    
+    
 }
 
 extension ViewController: CountOnMeDelegate {
-    func updateTextView(label: String) {
-        textView.text = label
-    }
     func alertShow(title: String, message: String) {
         updateShowAlert(title: title, message: message)
     }
