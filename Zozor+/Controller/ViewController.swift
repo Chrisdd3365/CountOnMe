@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         for (index, numberButton) in numberButtons.enumerated() where sender == numberButton {
             countOnMeBrain.addNewNumber(index)
-            countOnMeBrain.updateDisplay()
         }
     }
     
@@ -41,7 +40,6 @@ class ViewController: UIViewController {
     
     @IBAction func equal() {
         countOnMeBrain.calculateTotal()
-        textView.text = textView.text + "\(countOnMeBrain.total)"
     }
     
     //MARK: - Methods
@@ -53,7 +51,10 @@ class ViewController: UIViewController {
 extension ViewController: CountOnMeDelegate {
     func alertShow(title: String, message: String) {
         updateShowAlert(title: title, message: message)
-        
+    }
+    
+    func updateTextView(label: String) {
+        textView.text = label
     }
 }
 

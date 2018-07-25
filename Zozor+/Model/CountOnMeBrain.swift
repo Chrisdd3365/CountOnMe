@@ -10,6 +10,7 @@ import UIKit
 
 protocol CountOnMeDelegate {
     func alertShow(title: String, message: String)
+    func updateTextView(label: String)
 }
 
 class CountOnMeBrain {
@@ -18,7 +19,6 @@ class CountOnMeBrain {
     var stringNumbers: [String] = [String()]
     var operators: [String] = ["+"]
     var index = 0
-    var total = 0
     var countOnMeDelegate: CountOnMeDelegate?
     var isExpressionCorrect: Bool {
         if let stringNumber = stringNumbers.last {
@@ -58,6 +58,7 @@ class CountOnMeBrain {
         if !isExpressionCorrect {
             return
         }
+        var total = 0
         for (index, stringNumber) in stringNumbers.enumerated() {
             if let number = Int(stringNumber) {
                 if operators[index] == "+" {
@@ -67,6 +68,7 @@ class CountOnMeBrain {
                 }
             }
         }
+        countOnMeDelegate?.updateTextView(label: "\(total)")
         clear()
     }
     
@@ -102,7 +104,7 @@ class CountOnMeBrain {
             // Add number
             text += stringNumber
         }
-        //textView.text = text
+        countOnMeDelegate?.updateTextView(label: text)
     }
 }
 
