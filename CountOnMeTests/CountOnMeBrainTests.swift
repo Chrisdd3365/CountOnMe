@@ -13,17 +13,17 @@ class CountOnMeBrainTests: XCTestCase {
     
     let numberString = CountOnMeBrain()
     
-    func testGivenExpressionIsCorrectIsFalse_WhenAlertShow_ThenExpressionIsNotCorrect() {
-        numberString.addNewNumber(123)
-        numberString.plus()
-        numberString.calculateTotal()
-        numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Entrez une expression correcte!")
+    func testGivenExpressionIsCorrectIsFalse_WhenAlertShow_ThenAlertStartNewCalculation() {
+        numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Démarrez un nouveau calcul!")
         
         XCTAssertFalse(numberString.isExpressionCorrect)
     }
     
-    func testGivenExpressionIsCorrectIsFalse_WhenAlertShow_ThenExpressionIsNotCorrect2() {
-        numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Démarrez un nouveau calcul!")
+    func testGivenExpressionIsCorrectIsFalse_WhenAlertShow_ThenAlertWriteCorrectExpression() {
+        numberString.addNewNumber(123)
+        numberString.plus()
+        numberString.calculateTotal()
+        numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Entrez une expression correcte!")
         
         XCTAssertFalse(numberString.isExpressionCorrect)
     }
@@ -40,7 +40,7 @@ class CountOnMeBrainTests: XCTestCase {
     func testGivenCanAddOperatorIsFalse_WhenAlertShow_ThenCanAddOperatorCallAlertShowMethod() {
         numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Expression incorrecte!")
         
-        XCTAssert(numberString.canAddOperator == false)
+        XCTAssertFalse(numberString.canAddOperator)
     }
     
     func testGivenNumberStringIsNil_WhenAddNewNumber_ThenNumberStringIsNotNil() {
