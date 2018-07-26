@@ -13,10 +13,34 @@ class CountOnMeBrainTests: XCTestCase {
     
     let numberString = CountOnMeBrain()
     
-    func testGivenNumberStringIsNil_WhenCalculateTotal_ThenNumberStringIsCalculated() {
+    func testGivenExpressionIsCorrectIsFalse_WhenAlertShow_ThenExpressionIsNotCorrect() {
+        numberString.addNewNumber(123)
+        numberString.plus()
+        numberString.calculateTotal()
+        numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Entrez une expression correcte!")
+        
+        XCTAssertFalse(numberString.isExpressionCorrect)
+    }
+    
+    func testGivenExpressionIsCorrectIsFalse_WhenAlertShow_ThenExpressionIsNotCorrect2() {
+        numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Démarrez un nouveau calcul!")
+        
+        XCTAssertFalse(numberString.isExpressionCorrect)
+    }
+    
+    func testGivenExpressionIsCorrectIsTrue_WhenCalculating_ThenExpressionIsCorrect() {
+        numberString.addNewNumber(12345)
+        numberString.minus()
+        numberString.addNewNumber(1234)
         numberString.calculateTotal()
         
-        XCTAssert(true)
+        XCTAssertFalse(numberString.isExpressionCorrect)
+    }
+    
+    func testGivenCanAddOperatorIsFalse_WhenAlertShow_ThenCanAddOperatorCallAlertShowMethod() {
+        numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Expression incorrecte!")
+        
+        XCTAssert(numberString.canAddOperator == false)
     }
     
     func testGivenNumberStringIsNil_WhenAddNewNumber_ThenNumberStringIsNotNil() {
