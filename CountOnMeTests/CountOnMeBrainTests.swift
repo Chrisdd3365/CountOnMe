@@ -11,8 +11,10 @@ import XCTest
 
 class CountOnMeBrainTests: XCTestCase {
     
+    //MARK: - Properties
     let numberString = CountOnMeBrain()
     
+    //MARK: - Methods
     func testGivenExpressionIsCorrectIsFalse_WhenAlertShow_ThenAlertStartNewCalculation() {
         numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Démarrez un nouveau calcul!")
         
