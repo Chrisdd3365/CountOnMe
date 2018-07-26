@@ -134,8 +134,8 @@
 		C926DADB1D7581BB00477020 /* CountOnMe */ = {
 			isa = PBXGroup;
 			children = (
-				95301F9B21062E4F0092F8CC /* View */,
 				95301F9821062A6C0092F8CC /* Extensions */,
+				95301F9B21062E4F0092F8CC /* View */,
 				95A0387720F367EF00B17FB0 /* Model */,
 				95A0387620F367DE00B17FB0 /* Controller */,
 			);

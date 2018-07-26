@@ -38,14 +38,17 @@ class ViewController: UIViewController {
         countOnMeBrain.minus()
     }
     
+    @IBAction func multiply() {
+        countOnMeBrain.multiply()
+    }
+    
+    @IBAction func divide() {
+        countOnMeBrain.divide()
+    }
+    
     @IBAction func equal() {
         countOnMeBrain.calculateTotal()
     }
-    
-    //MARK: - Methods
-    
-    
-    
 }
 
 extension ViewController: CountOnMeDelegate {

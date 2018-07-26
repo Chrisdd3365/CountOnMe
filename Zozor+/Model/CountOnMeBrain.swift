@@ -63,8 +63,15 @@ class CountOnMeBrain {
             if let number = Int(stringNumber) {
                 if operators[index] == "+" {
                     total += number
-                } else if operators[index] == "-" {
+                }
+                if operators[index] == "-" {
                     total -= number
+                }
+                if operators[index] == "÷" {
+                    total /= number
+                }
+                if operators[index] == "x" {
+                    total *= number
                 }
             }
         }
@@ -76,6 +83,22 @@ class CountOnMeBrain {
         stringNumbers = [String()]
         operators = ["+"]
         index = 0
+    }
+    
+    func divide() {
+        if canAddOperator {
+           operators.append("÷")
+            stringNumbers.append("")
+            updateDisplay()
+        }
+    }
+    
+    func multiply() {
+        if canAddOperator {
+            operators.append("x")
+            stringNumbers.append("")
+            updateDisplay()
+        }
     }
     
     func minus() {

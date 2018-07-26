@@ -56,4 +56,22 @@ class CountOnMeBrainTests: XCTestCase {
         XCTAssert(numberString.operators == ["+"])
         XCTAssert(numberString.index == 0)
     }
+    
+    func testGivenNumberStringIsSomething_WhenDivide_ThenNumberStringIsDivided() {
+        numberString.addNewNumber(1)
+        numberString.divide()
+        numberString.addNewNumber(1)
+        numberString.calculateTotal()
+        
+        XCTAssertFalse(numberString.isExpressionCorrect)
+    }
+    
+    func testGivenNumberStringIsSomething_WhenMultiply_ThenNumberStringIsMultiplied() {
+        numberString.addNewNumber(8)
+        numberString.multiply()
+        numberString.addNewNumber(2)
+        numberString.calculateTotal()
+        
+        XCTAssertFalse(numberString.isExpressionCorrect)
+    }
 }
