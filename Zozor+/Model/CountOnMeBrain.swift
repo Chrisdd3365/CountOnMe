@@ -58,20 +58,20 @@ class CountOnMeBrain {
         if !isExpressionCorrect {
             return
         }
-        var total = Float()
+        var total = Double()
         for (index, stringNumber) in stringNumbers.enumerated() {
-            let number = Float(stringNumber)
+            let number = Double(stringNumber)
             switch operators[index] {
-                case "+":
-                    total += number!
-                case "-":
-                    total -= number!
-                case "÷":
-                    total /= number!
-                case "x":
-                    total *= number!
-                default:
-                    break
+            case "+":
+                total += number!
+            case "-":
+                total -= number!
+            case "÷":
+                total /= number!
+            case "x":
+                total *= number!
+            default:
+                break
             }
         }
         countOnMeDelegate?.updateTextView(label: "\(total)")
@@ -86,7 +86,7 @@ class CountOnMeBrain {
     
     func divide() {
         if canAddOperator {
-           operators.append("÷")
+            operators.append("÷")
             stringNumbers.append("")
             updateDisplay()
         }

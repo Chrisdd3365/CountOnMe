@@ -12,73 +12,68 @@ import XCTest
 class CountOnMeBrainTests: XCTestCase {
     
     //MARK: - Properties
-    var numberString: CountOnMeBrain!
-    
-    override func setUp() {
-        super.setUp()
-        numberString = CountOnMeBrain()
-    }
+    var countOnMe: CountOnMeBrain!
     
     //MARK: - Methods
+    override func setUp() {
+        super.setUp()
+        countOnMe = CountOnMeBrain()
+    }
+    
     func testGivenIsExpressionCorrect_WhenStringNumberContainNothing_ThenExpressionReturnFalse() {
         
-        XCTAssertFalse(numberString.isExpressionCorrect)
+        XCTAssertFalse(countOnMe.isExpressionCorrect)
     }
     
-    func testGivenExpressionIsCorrectIsFalse_WhenExpressionTappedIsNotCorrect_ThenExpressionReturnFalse() {
-        numberString.addNewNumber(123)
-        numberString.plus()
-        numberString.calculateTotal()
+    func testGivenIsExpressionCorrect_WhenExpressionTappedIsNotCorrect_ThenExpressionReturnFalse() {
+        countOnMe.addNewNumber(123)
+        countOnMe.plus()
+        countOnMe.calculateTotal()
         
-        XCTAssertFalse(numberString.isExpressionCorrect)
+        XCTAssertFalse(countOnMe.isExpressionCorrect)
     }
     
-    func testGivenExpressionIsCorrectIsTrue_WhenCalculating_ThenExpressionIsCorrect() {
-        numberString.addNewNumber(1)
+    func testGivenIsExpressionCorrect_WhenExpressionTappedIsCorrect_ThenExpressionReturnTrue() {
+        countOnMe.addNewNumber(1)
         
-        XCTAssertTrue(numberString.isExpressionCorrect)
+        XCTAssertTrue(countOnMe.isExpressionCorrect)
     }
     
-    func testGivenCanAddOperatorIsFalse_WhenStringNumberContainNothing_ThenCanAddOperatorReturnTrue() {
+    func testGivenCanAddOperator_WhenStringNumberContainNothing_ThenCanAddOperatorReturnFalse() {
      
-        XCTAssertFalse(numberString.canAddOperator)
+        XCTAssertFalse(countOnMe.canAddOperator)
     }
     
-    func testGivenCanAddOperatorIsTrue_WhenStringNumberContainSomething_ThenCanAddOperatorReturnTrue() {
-        numberString.addNewNumber(1)
+    func testGivenCanAddOperator_WhenStringNumberContainSomething_ThenCanAddOperatorReturnTrue() {
+        countOnMe.addNewNumber(1)
         
-        XCTAssertTrue(numberString.canAddOperator)
+        XCTAssertTrue(countOnMe.canAddOperator)
     }
     
-    func testGivenNumberStringIsNil_WhenAddNewNumber_ThenNumberStringIsNotNil() {
-        numberString.addNewNumber(1)
+    func testGivenAddNewNumber_WhenStringNumberContainAnything_ThenNewNumberIsAdded() {
+        countOnMe.addNewNumber(1)
         
-        XCTAssert(numberString.stringNumbers[numberString.stringNumbers.count-1] == "1")
+        XCTAssert(countOnMe.stringNumbers[countOnMe.stringNumbers.count-1] == "1")
     }
     
-    func testGivenNumberStringIsNotClear_WhenClear_ThenNumberStringIsClear() {
-        numberString.clear()
+    func testGivenClear_WhenStringNumberContainAnything_ThenStringNumberIsCleared() {
+        countOnMe.clear()
         
-        XCTAssert(numberString.stringNumbers[numberString.stringNumbers.count-1] == "")
-        XCTAssert(numberString.operators == ["+"])
-        XCTAssert(numberString.index == 0)
+        XCTAssert(countOnMe.stringNumbers[countOnMe.stringNumbers.count-1] == "")
+        XCTAssert(countOnMe.operators == ["+"])
+        XCTAssert(countOnMe.index == 0)
     }
     
-    func testGivenNumberStringIsSomething_WhenDivide_ThenNumberStringIsDivided() {
-        numberString.addNewNumber(1)
-        numberString.divide()
-        numberString.addNewNumber(1)
-        numberString.calculateTotal()
+    func testGivenOperator_WhenStringNumberContainSomething_ThenStringNumberIsCalculated() {
+        countOnMe.addNewNumber(1)
+        countOnMe.divide()
+        countOnMe.addNewNumber(1)
+        countOnMe.multiply()
+        countOnMe.addNewNumber(1)
+        countOnMe.minus()
+        countOnMe.addNewNumber(1)
+        countOnMe.calculateTotal()
         
-        XCTAssertFalse(numberString.isExpressionCorrect)
-    }
-    
-    func testGivenNumberStringIsSomething_WhenMultiply_ThenNumberStringIsMultiplied() {
-        numberString.addNewNumber(8)
-        numberString.multiply()
-        numberString.addNewNumber(2)
-        numberString.calculateTotal()
-        
-        XCTAssertFalse(numberString.isExpressionCorrect)
+        XCTAssertFalse(countOnMe.isExpressionCorrect)
     }
 }

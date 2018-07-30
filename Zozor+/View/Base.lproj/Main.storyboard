@@ -40,7 +40,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AGj-xm-a0y"/>
+                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d3P-b9-3Ru"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1md-mv-IxN">
@@ -51,7 +51,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d7e-sy-DNh"/>
+                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cA9-zG-IUN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kt9-Uo-Pee">
@@ -62,7 +62,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Khe-P2-AQl"/>
+                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rde-sp-o9M"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0F-EX-S02">
@@ -73,7 +73,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qhq-oJ-Gcw"/>
+                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5WK-BE-HgE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9e-qZ-ZAT">
@@ -84,7 +84,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Tf-SH-td7"/>
+                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AAt-U1-YdJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
