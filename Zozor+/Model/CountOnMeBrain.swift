@@ -62,16 +62,16 @@ class CountOnMeBrain {
         for (index, stringNumber) in stringNumbers.enumerated() {
             let number = Double(stringNumber)
             switch operators[index] {
-            case "+":
-                total += number!
-            case "-":
-                total -= number!
-            case "÷":
-                total /= number!
-            case "x":
-                total *= number!
-            default:
-                break
+                case "+":
+                    total += number!
+                case "-":
+                    total -= number!
+                case "÷":
+                    total /= number!
+                case "x":
+                    total *= number!
+                default:
+                    break
             }
         }
         countOnMeDelegate?.updateTextView(label: "\(total)")
