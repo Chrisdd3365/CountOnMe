@@ -29,7 +29,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="JCS-G8-93l">
                                 <rect key="frame" x="15" y="590.5" width="345" height="56.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9t-JB-KHx">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9t-JB-KHx">
                                         <rect key="frame" x="0.0" y="0.0" width="57" height="56.5"/>
                                         <color key="backgroundColor" red="0.46913260918215349" green="0.71495165745856348" blue="0.62407517235679066" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -40,10 +40,10 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="plus" destination="BYZ-38-t0r" eventType="touchUpInside" id="wSX-dz-g1Q"/>
+                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AGj-xm-a0y"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1md-mv-IxN">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1md-mv-IxN">
                                         <rect key="frame" x="72" y="0.0" width="57" height="56.5"/>
                                         <color key="backgroundColor" red="0.87294975828729282" green="0.37112226881503746" blue="0.32504552810982973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
@@ -51,10 +51,10 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="minus" destination="BYZ-38-t0r" eventType="touchUpInside" id="axZ-P6-JsH"/>
+                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d7e-sy-DNh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kt9-Uo-Pee">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kt9-Uo-Pee">
                                         <rect key="frame" x="144" y="0.0" width="57" height="56.5"/>
                                         <color key="backgroundColor" red="0.098186513077557214" green="0.29684535888131547" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
@@ -62,10 +62,10 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="multiply" destination="BYZ-38-t0r" eventType="touchUpInside" id="ILb-BP-UlX"/>
+                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Khe-P2-AQl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0F-EX-S02">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0F-EX-S02">
                                         <rect key="frame" x="216" y="0.0" width="57" height="56.5"/>
                                         <color key="backgroundColor" red="0.56850077909999996" green="0.14488383930000001" blue="0.78482031819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
@@ -73,10 +73,10 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="divide" destination="BYZ-38-t0r" eventType="touchUpInside" id="F98-gf-VJK"/>
+                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qhq-oJ-Gcw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9e-qZ-ZAT">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9e-qZ-ZAT">
                                         <rect key="frame" x="288" y="0.0" width="57" height="56.5"/>
                                         <color key="backgroundColor" red="0.94643473756906082" green="0.64318747398780474" blue="0.12665354139525944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
@@ -84,7 +84,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="equal" destination="BYZ-38-t0r" eventType="touchUpInside" id="rHF-7s-zDj"/>
+                                            <action selector="tappedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Tf-SH-td7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -247,6 +247,11 @@
                         <outletCollection property="numberButtons" destination="cKJ-lP-BeQ" collectionClass="NSMutableArray" id="95z-oa-0gF"/>
                         <outletCollection property="numberButtons" destination="5iN-WA-tqI" collectionClass="NSMutableArray" id="cYC-AZ-zOd"/>
                         <outletCollection property="numberButtons" destination="57K-hd-XBz" collectionClass="NSMutableArray" id="xw1-Y0-XwN"/>
+                        <outletCollection property="operatorButtons" destination="u9t-JB-KHx" collectionClass="NSMutableArray" id="2dk-dl-9mf"/>
+                        <outletCollection property="operatorButtons" destination="1md-mv-IxN" collectionClass="NSMutableArray" id="4hD-C6-bU7"/>
+                        <outletCollection property="operatorButtons" destination="Kt9-Uo-Pee" collectionClass="NSMutableArray" id="fV3-Pi-80t"/>
+                        <outletCollection property="operatorButtons" destination="U0F-EX-S02" collectionClass="NSMutableArray" id="8lg-WY-bMb"/>
+                        <outletCollection property="operatorButtons" destination="D9e-qZ-ZAT" collectionClass="NSMutableArray" id="XsD-Ru-xhY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -12,43 +12,48 @@ import XCTest
 class CountOnMeBrainTests: XCTestCase {
     
     //MARK: - Properties
-    let numberString = CountOnMeBrain()
+    var numberString: CountOnMeBrain!
+    
+    override func setUp() {
+        super.setUp()
+        numberString = CountOnMeBrain()
+    }
     
     //MARK: - Methods
-    func testGivenExpressionIsCorrectIsFalse_WhenAlertShow_ThenAlertStartNewCalculation() {
-        numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Démarrez un nouveau calcul!")
+    func testGivenIsExpressionCorrect_WhenStringNumberContainNothing_ThenExpressionReturnFalse() {
         
         XCTAssertFalse(numberString.isExpressionCorrect)
     }
     
-    func testGivenExpressionIsCorrectIsFalse_WhenAlertShow_ThenAlertWriteCorrectExpression() {
+    func testGivenExpressionIsCorrectIsFalse_WhenExpressionTappedIsNotCorrect_ThenExpressionReturnFalse() {
         numberString.addNewNumber(123)
         numberString.plus()
         numberString.calculateTotal()
-        numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Entrez une expression correcte!")
         
         XCTAssertFalse(numberString.isExpressionCorrect)
     }
     
     func testGivenExpressionIsCorrectIsTrue_WhenCalculating_ThenExpressionIsCorrect() {
-        numberString.addNewNumber(12345)
-        numberString.minus()
-        numberString.addNewNumber(1234)
-        numberString.calculateTotal()
+        numberString.addNewNumber(1)
         
-        XCTAssertFalse(numberString.isExpressionCorrect)
+        XCTAssertTrue(numberString.isExpressionCorrect)
     }
     
-    func testGivenCanAddOperatorIsFalse_WhenAlertShow_ThenCanAddOperatorCallAlertShowMethod() {
-        numberString.countOnMeDelegate?.alertShow(title: "Zéro!", message: "Expression incorrecte!")
-        
+    func testGivenCanAddOperatorIsFalse_WhenStringNumberContainNothing_ThenCanAddOperatorReturnTrue() {
+     
         XCTAssertFalse(numberString.canAddOperator)
     }
     
-    func testGivenNumberStringIsNil_WhenAddNewNumber_ThenNumberStringIsNotNil() {
-        numberString.addNewNumber(1234)
+    func testGivenCanAddOperatorIsTrue_WhenStringNumberContainSomething_ThenCanAddOperatorReturnTrue() {
+        numberString.addNewNumber(1)
         
-        XCTAssert(numberString.stringNumbers[numberString.stringNumbers.count-1] == "1234")
+        XCTAssertTrue(numberString.canAddOperator)
+    }
+    
+    func testGivenNumberStringIsNil_WhenAddNewNumber_ThenNumberStringIsNotNil() {
+        numberString.addNewNumber(1)
+        
+        XCTAssert(numberString.stringNumbers[numberString.stringNumbers.count-1] == "1")
     }
     
     func testGivenNumberStringIsNotClear_WhenClear_ThenNumberStringIsClear() {

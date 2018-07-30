@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet var numberButtons: [UIButton]!
     
     //MARK: - Properties
+    var tag = 0
     var countOnMeBrain = CountOnMeBrain()
     
     //MARK: - View Life Cycle
@@ -30,24 +31,25 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func plus() {
-        countOnMeBrain.plus()
+    @IBAction func tappedOperatorButton(_ sender: UIButton) {
+        tag = sender.tag
     }
     
-    @IBAction func minus() {
-        countOnMeBrain.minus()
-    }
-    
-    @IBAction func multiply() {
-        countOnMeBrain.multiply()
-    }
-    
-    @IBAction func divide() {
-        countOnMeBrain.divide()
-    }
-    
-    @IBAction func equal() {
-        countOnMeBrain.calculateTotal()
+    func operatorButtonTapped() {
+        switch tag {
+        case 1:
+            countOnMeBrain.plus()
+        case 2:
+            countOnMeBrain.minus()
+        case 3:
+            countOnMeBrain.multiply()
+        case 4:
+            countOnMeBrain.divide()
+        case 5:
+            countOnMeBrain.calculateTotal()
+        default:
+            break
+        }
     }
 }
 

@@ -58,21 +58,20 @@ class CountOnMeBrain {
         if !isExpressionCorrect {
             return
         }
-        var total = 0
+        var total = Float()
         for (index, stringNumber) in stringNumbers.enumerated() {
-            if let number = Int(stringNumber) {
-                if operators[index] == "+" {
-                    total += number
-                }
-                if operators[index] == "-" {
-                    total -= number
-                }
-                if operators[index] == "÷" {
-                    total /= number
-                }
-                if operators[index] == "x" {
-                    total *= number
-                }
+            let number = Float(stringNumber)
+            switch operators[index] {
+                case "+":
+                    total += number!
+                case "-":
+                    total -= number!
+                case "÷":
+                    total /= number!
+                case "x":
+                    total *= number!
+                default:
+                    break
             }
         }
         countOnMeDelegate?.updateTextView(label: "\(total)")
