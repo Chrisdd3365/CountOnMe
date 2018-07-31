@@ -21,12 +21,11 @@ class CountOnMeBrainTests: XCTestCase {
     }
     
     func testGivenIsExpressionCorrect_WhenStringNumberContainNothing_ThenExpressionReturnFalse() {
-        
         XCTAssertFalse(countOnMe.isExpressionCorrect)
     }
     
     func testGivenIsExpressionCorrect_WhenExpressionTappedIsNotCorrect_ThenExpressionReturnFalse() {
-        countOnMe.addNewNumber(123)
+        countOnMe.addNewNumber(1)
         countOnMe.plus()
         countOnMe.calculateTotal()
         
@@ -40,7 +39,6 @@ class CountOnMeBrainTests: XCTestCase {
     }
     
     func testGivenCanAddOperator_WhenStringNumberContainNothing_ThenCanAddOperatorReturnFalse() {
-     
         XCTAssertFalse(countOnMe.canAddOperator)
     }
     

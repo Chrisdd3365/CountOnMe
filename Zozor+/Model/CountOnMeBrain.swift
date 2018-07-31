@@ -8,13 +8,51 @@
 
 import UIKit
 
+precedencegroup AssignmentPrecedence {
+    assignment: true
+    associativity: right
+    //higherThan: MultiplicationPrecedence
+}
+
+//precedencegroup MultiplicationPrecedence {
+//    associativity: left
+//    higherThan: AdditionPrecedence
+//}
+//
+//precedencegroup AdditionPrecedence {
+//    associativity: left
+//}
+
+//infix operator * : MultiplicationPrecedence
+//infix operator / : MultiplicationPrecedence
+//infix operator + : AdditionPrecedence
+//infix operator - : AdditionPrecedence
+infix operator *= : AssignmentPrecedence
+infix operator /= : AssignmentPrecedence
+infix operator += : AssignmentPrecedence
+infix operator -= : AssignmentPrecedence
+
+
+//func /=(a: Double, b: Double) -> Double {
+//    return a / b
+//}
+//
+//func +=(a: Double, b: Double) -> Double {
+//    return a + b
+//}
+//
+//func -=(a: Double, b: Double) -> Double {
+//    return a - b
+//}
+
+
 protocol CountOnMeDelegate {
     func alertShow(title: String, message: String)
     func updateTextView(label: String)
 }
 
 class CountOnMeBrain {
- 
+    
     //MARK: - Properties
     var stringNumbers: [String] = [String()]
     var operators: [String] = ["+"]
