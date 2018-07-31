@@ -14,7 +14,7 @@ protocol CountOnMeDelegate {
 }
 
 class CountOnMeBrain {
-    
+ 
     //MARK: - Properties
     var stringNumbers: [String] = [String()]
     var operators: [String] = ["+"]
