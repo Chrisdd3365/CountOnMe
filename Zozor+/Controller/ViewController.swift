@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet var numberButtons: [UIButton]!
+    @IBOutlet var numberButtons: UIButton!
     @IBOutlet var operatorButtons: UIButton!
     
     //MARK: - Properties
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
             countOnMeBrain.divide()
         case 14:
             countOnMeBrain.calculateTotal()
+            //countOnMeBrain.operation()
         default:
             break
         }
