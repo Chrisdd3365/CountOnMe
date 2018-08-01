@@ -8,44 +8,6 @@
 
 import UIKit
 
-precedencegroup AssignmentPrecedence {
-    assignment: true
-    associativity: right
-    //higherThan: MultiplicationPrecedence
-}
-
-//precedencegroup MultiplicationPrecedence {
-//    associativity: left
-//    higherThan: AdditionPrecedence
-//}
-//
-//precedencegroup AdditionPrecedence {
-//    associativity: left
-//}
-
-//infix operator * : MultiplicationPrecedence
-//infix operator / : MultiplicationPrecedence
-//infix operator + : AdditionPrecedence
-//infix operator - : AdditionPrecedence
-infix operator *= : AssignmentPrecedence
-infix operator /= : AssignmentPrecedence
-infix operator += : AssignmentPrecedence
-infix operator -= : AssignmentPrecedence
-
-
-//func /=(a: Double, b: Double) -> Double {
-//    return a / b
-//}
-//
-//func +=(a: Double, b: Double) -> Double {
-//    return a + b
-//}
-//
-//func -=(a: Double, b: Double) -> Double {
-//    return a - b
-//}
-
-
 protocol CountOnMeDelegate {
     func alertShow(title: String, message: String)
     func updateTextView(label: String)
@@ -62,9 +24,9 @@ class CountOnMeBrain {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
                 if stringNumbers.count == 1 {
-                    countOnMeDelegate?.alertShow(title: "Zéro!", message: "Démarrez un nouveau calcul!")
+                    countOnMeDelegate?.alertShow(title: "Zero!", message: "Start a new calculation!")
                 } else {
-                    countOnMeDelegate?.alertShow(title: "Zéro!", message: "Entrez une expression correcte!")
+                    countOnMeDelegate?.alertShow(title: "Zero!", message: "Type a correct expression!")
                 }
                 return false
             }
@@ -75,7 +37,7 @@ class CountOnMeBrain {
     var canAddOperator: Bool {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
-                countOnMeDelegate?.alertShow(title: "Zéro!", message: "Expression incorrecte!")
+                countOnMeDelegate?.alertShow(title: "Zero!", message: "Wrong expression!")
                 return false
             }
         }
@@ -100,16 +62,16 @@ class CountOnMeBrain {
         for (index, stringNumber) in stringNumbers.enumerated() {
             let number = Double(stringNumber)
             switch operators[index] {
-                case "+":
-                    total += number!
-                case "-":
-                    total -= number!
-                case "÷":
-                    total /= number!
-                case "x":
-                    total *= number!
-                default:
-                    break
+            case "+":
+                total += number!
+            case "-":
+                total -= number!
+            case "÷":
+                total /= number!
+            case "x":
+                total *= number!
+            default:
+                break
             }
         }
         countOnMeDelegate?.updateTextView(label: "\(total)")
