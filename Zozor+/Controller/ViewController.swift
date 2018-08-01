@@ -26,22 +26,20 @@ class ViewController: UIViewController {
     
     //MARK: - Action
     @IBAction func tappedNumberButton(_ sender: UIButton) {
-        for (index, numberButton) in numberButtons.enumerated() where sender == numberButton {
-            countOnMeBrain.addNewNumber(index)
-        }
+        countOnMeBrain.addNewNumber(sender.tag)
     }
     
     @IBAction func tappedOperatorButton(_ sender: UIButton) {
         switch sender.tag {
-        case 1:
+        case 10:
             countOnMeBrain.plus()
-        case 2:
+        case 11:
             countOnMeBrain.minus()
-        case 3:
+        case 12:
             countOnMeBrain.multiply()
-        case 4:
+        case 13:
             countOnMeBrain.divide()
-        case 5:
+        case 14:
             countOnMeBrain.calculateTotal()
         default:
             break
