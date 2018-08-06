@@ -58,24 +58,43 @@ class CountOnMeBrain {
         if !isExpressionCorrect {
             return
         }
+        orderOfOperations()
         var total = Double()
         for (index, stringNumber) in stringNumbers.enumerated() {
-            let number = Double(stringNumber)
+            guard let number = Double(stringNumber) else { return }
             switch operators[index] {
             case "+":
-                total += number!
+                total += number
             case "-":
-                total -= number!
-            case "÷":
-                total /= number!
-            case "x":
-                total *= number!
+                total -= number
             default:
                 break
             }
         }
         countOnMeDelegate?.updateTextView(label: "\(total)")
         clear()
+    }
+    
+    func orderOfOperations() {
+        for (index, calculateOperator) in operators.enumerated().reversed() where calculateOperator == "x" || calculateOperator == "÷" {
+            var operation: ((Double, Double)-> Double)?
+            if calculateOperator == "x" {
+                operation = (*)
+            } else if calculateOperator == "÷" && stringNumbers[index] != "0"{
+                operation = (/)
+            } else {
+                countOnMeDelegate?.alertShow(title: "Error!", message: "Dividing by 0 doesn't exist!")
+                clear()
+            }
+            guard let operand = operation else { return }
+            guard let firstNumber = Double(stringNumbers[index - 1]) else { return }
+            guard let secondNumber = Double(stringNumbers[index]) else { return }
+            let total = operand(firstNumber, secondNumber)
+            let totalString = String(format: "%.2f", total)
+            stringNumbers[index - 1] = String(totalString)
+            stringNumbers.remove(at: index)
+            operators.remove(at: index)
+        }
     }
     
     func clear() {

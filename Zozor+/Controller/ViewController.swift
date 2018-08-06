@@ -30,18 +30,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedOperatorButton(_ sender: UIButton) {
-        switch sender.tag {
-        case 10:
+        switch sender.title(for: .normal) {
+        case "+":
             countOnMeBrain.plus()
-        case 11:
+        case "-":
             countOnMeBrain.minus()
-        case 12:
+        case "x":
             countOnMeBrain.multiply()
-        case 13:
+        case "÷":
             countOnMeBrain.divide()
-        case 14:
+        case "=":
             countOnMeBrain.calculateTotal()
-            //countOnMeBrain.operation()
         default:
             break
         }
