@@ -62,16 +62,16 @@ class CountOnMeBrainTests: XCTestCase {
         XCTAssert(countOnMe.index == 0)
     }
     
-    func testGivenOperator_WhenStringNumberContainSomething_ThenStringNumberIsCalculated() {
-        countOnMe.addNewNumber(1)
-        countOnMe.divide()
-        countOnMe.addNewNumber(1)
-        countOnMe.multiply()
+    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberFollowsOrderOfOperations() {
         countOnMe.addNewNumber(1)
         countOnMe.minus()
-        countOnMe.addNewNumber(1)
+        countOnMe.addNewNumber(2)
+        countOnMe.multiply()
+        countOnMe.addNewNumber(8)
+        countOnMe.divide()
+        countOnMe.addNewNumber(2)
         countOnMe.calculateTotal()
         
-        XCTAssertFalse(countOnMe.isExpressionCorrect)
+        XCTAssert(true)
     }
 }

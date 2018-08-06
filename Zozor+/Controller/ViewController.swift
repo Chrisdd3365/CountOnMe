@@ -25,10 +25,11 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Action
+    //Managing IBAction of the different number's buttons with sender.tag property
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         countOnMeBrain.addNewNumber(sender.tag)
     }
-    
+    //Managing IBAction of the different operator's buttons with sender.title property
     @IBAction func tappedOperatorButton(_ sender: UIButton) {
         switch sender.title(for: .normal) {
         case "+":
@@ -46,7 +47,7 @@ class ViewController: UIViewController {
         }
     }
 }
-
+//Using extension with protocol(Model) to delegate, in order to manage alerts and update the display, to the model
 extension ViewController: CountOnMeDelegate {
     func alertShow(title: String, message: String) {
         updateShowAlert(title: title, message: message)
