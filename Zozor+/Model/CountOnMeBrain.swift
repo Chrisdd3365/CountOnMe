@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 //Using protocol to delegate alerts and update the display(textView)
 protocol CountOnMeDelegate {
     func alertShow(title: String, message: String)
@@ -55,7 +56,7 @@ class CountOnMeBrain {
         }
         updateDisplay()
     }
-    //Method managing operations (+, -, *, /)
+    //Method managing operations (+, -)
     func calculateTotal() {
         if !isExpressionCorrect {
             return
@@ -73,13 +74,13 @@ class CountOnMeBrain {
         countOnMeDelegate?.updateTextView(label: "\(total)")
         clear()
     }
-    //Method managing order of operations
+    //Method managing order of operations and managing operations (*, /)
     func orderOfOperations() {
         for (index, calculateOperator) in operators.enumerated().reversed() where calculateOperator == "x" || calculateOperator == "÷" {
             var operation: ((Double, Double)-> Double)?
             if calculateOperator == "x" {
                 operation = (*)
-            } else if calculateOperator == "÷" && stringNumbers[index] != "0"{
+            } else if calculateOperator == "÷" && stringNumbers[index] != "0" {
                 operation = (/)
             } else {
                 countOnMeDelegate?.alertShow(title: "Error!", message: "Dividing by 0 doesn't exist!")
@@ -91,8 +92,8 @@ class CountOnMeBrain {
             let total = op(firstNumber, secondNumber)
             let totalString = String(format: "%.2f", total)
             stringNumbers[index - 1] = String(totalString)
-            stringNumbers.remove(at: index)
-            operators.remove(at: index)
+//            stringNumbers.remove(at: index)
+//            operators.remove(at: index)
         }
     }
     //Method managing reset of the label's text
