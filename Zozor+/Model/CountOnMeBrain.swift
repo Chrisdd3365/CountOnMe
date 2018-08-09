@@ -61,41 +61,63 @@ class CountOnMeBrain {
         if !isExpressionCorrect {
             return
         }
-        orderOfOperations()
+        //orderOfOperations()
         var total = Double()
         for (index, stringNumber) in stringNumbers.enumerated() {
             guard let number = Double(stringNumber) else { return }
-            if operators[index] == "+" {
+            switch operators[index] {
+            case "+":
                 total += number
-            } else if operators[index] == "-" {
+            case "-":
                 total -= number
+            case "x":
+                total *= number
+            case "÷":
+                total /= number
+            default:
+                break
             }
+//            if operators[index] == "÷" && stringNumbers[index] != "0"  {
+//                total /= number
+//            } else {
+//                countOnMeDelegate?.alertShow(title: "Error!", message: "Dividing by 0 doesn't exist!")
+//                clear()
+//            }
+//            
+            
+//            if operators[index] == "+" {
+//                total += number
+//            }
+//            else if operators[index] == "-" {
+//                total -= number
+//            }
+
         }
         countOnMeDelegate?.updateTextView(label: "\(total)")
         clear()
     }
     //Method managing order of operations and managing operations (*, /)
-    func orderOfOperations() {
-        for (index, calculateOperator) in operators.enumerated().reversed() where calculateOperator == "x" || calculateOperator == "÷" {
-            var operation: ((Double, Double)-> Double)?
-            if calculateOperator == "x" {
-                operation = (*)
-            } else if calculateOperator == "÷" && stringNumbers[index] != "0" {
-                operation = (/)
-            } else {
-                countOnMeDelegate?.alertShow(title: "Error!", message: "Dividing by 0 doesn't exist!")
-                clear()
-            }
-            guard let op = operation else { return }
-            guard let firstNumber = Double(stringNumbers[index - 1]) else { return }
-            guard let secondNumber = Double(stringNumbers[index]) else { return }
-            let total = op(firstNumber, secondNumber)
-            let totalString = String(format: "%.2f", total)
-            stringNumbers[index - 1] = String(totalString)
+//    func orderOfOperations() {
+//        for (index, calculateOperator) in operators.enumerated().reversed() where calculateOperator == "x" || calculateOperator == "÷" {
+//            var operation: ((Double, Double)-> Double)?
+//            if calculateOperator == "x" {
+//                operation = (*)
+//            } else if calculateOperator == "÷" && stringNumbers[index] != "0" {
+//                operation = (/)
+//            } else {
+//                countOnMeDelegate?.alertShow(title: "Error!", message: "Dividing by 0 doesn't exist!")
+//                clear()
+//            }
+//            guard let op = operation else { return }
+//            guard let firstNumber = Double(stringNumbers[index - 1]) else { return }
+//            guard let secondNumber = Double(stringNumbers[index]) else { return }
+//            let total = op(firstNumber, secondNumber)
+//            let totalString = String(format: "%.2f", total)
+//            stringNumbers[index - 1] = String(totalString)
 //            stringNumbers.remove(at: index)
 //            operators.remove(at: index)
-        }
-    }
+//        }
+//    }
     //Method managing reset of the label's text
     func clear() {
         stringNumbers = [String()]
