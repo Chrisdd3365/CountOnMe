@@ -74,4 +74,10 @@ class CountOnMeBrainTests: XCTestCase {
         
         XCTAssert(true)
     }
+    
+    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberIsCorrect() {
+        countOnMe.orderOfOperations()
+        
+        XCTAssert(true)
+    }
 }

@@ -17,9 +17,12 @@ protocol CountOnMeDelegate {
 class CountOnMeBrain {
     
     //MARK: - Properties
+    //Array of numbers
     var stringNumbers: [String] = [String()]
+    //Array of operators
     var operators: [String] = ["+"]
     var index = 0
+    //Var that holds the delegate
     var countOnMeDelegate: CountOnMeDelegate?
     //Var checking if the expression is correctly typed by the user, else it will alert the user
     var isExpressionCorrect: Bool {
@@ -61,63 +64,47 @@ class CountOnMeBrain {
         if !isExpressionCorrect {
             return
         }
-        //orderOfOperations()
+        orderOfOperations()
         var total = Double()
         for (index, stringNumber) in stringNumbers.enumerated() {
             guard let number = Double(stringNumber) else { return }
-            switch operators[index] {
-            case "+":
+            if operators[index] == "+" {
                 total += number
-            case "-":
+            } else if operators[index] == "-" {
                 total -= number
-            case "x":
-                total *= number
-            case "÷":
-                total /= number
-            default:
-                break
             }
-//            if operators[index] == "÷" && stringNumbers[index] != "0"  {
-//                total /= number
-//            } else {
-//                countOnMeDelegate?.alertShow(title: "Error!", message: "Dividing by 0 doesn't exist!")
-//                clear()
-//            }
-//            
-            
-//            if operators[index] == "+" {
-//                total += number
-//            }
-//            else if operators[index] == "-" {
-//                total -= number
-//            }
-
         }
-        countOnMeDelegate?.updateTextView(label: "\(total)")
+        let result = String(format: "%.2f", total)
+        countOnMeDelegate?.updateTextView(label: result)
         clear()
     }
     //Method managing order of operations and managing operations (*, /)
-//    func orderOfOperations() {
-//        for (index, calculateOperator) in operators.enumerated().reversed() where calculateOperator == "x" || calculateOperator == "÷" {
-//            var operation: ((Double, Double)-> Double)?
-//            if calculateOperator == "x" {
-//                operation = (*)
-//            } else if calculateOperator == "÷" && stringNumbers[index] != "0" {
-//                operation = (/)
-//            } else {
-//                countOnMeDelegate?.alertShow(title: "Error!", message: "Dividing by 0 doesn't exist!")
-//                clear()
-//            }
-//            guard let op = operation else { return }
-//            guard let firstNumber = Double(stringNumbers[index - 1]) else { return }
-//            guard let secondNumber = Double(stringNumbers[index]) else { return }
-//            let total = op(firstNumber, secondNumber)
-//            let totalString = String(format: "%.2f", total)
-//            stringNumbers[index - 1] = String(totalString)
-//            stringNumbers.remove(at: index)
-//            operators.remove(at: index)
-//        }
-//    }
+    func orderOfOperations() {
+        let priorityOperators = ["x", "÷"]
+        var result: Double = 0
+        var i = 0
+        while i < stringNumbers.count - 1 {
+            if var firstOperand = Double(stringNumbers[i]) {
+                while priorityOperators.contains(operators[i + 1]) {
+                    if let secondOperand = Double(stringNumbers[i + 1]) {
+                        if operators[i + 1] == "x" {
+                            result = firstOperand * secondOperand
+                        } else if operators[i + 1] == "÷" {
+                            result = firstOperand / secondOperand
+                        }
+                        stringNumbers[i] = String(result)
+                        firstOperand = result
+                        stringNumbers.remove(at: i + 1)
+                        operators.remove(at: i + 1)
+                        if i == stringNumbers.count - 1 {
+                            return
+                        }
+                    }
+                }
+                i += 1
+            }
+        }
+    }
     //Method managing reset of the label's text
     func clear() {
         stringNumbers = [String()]
