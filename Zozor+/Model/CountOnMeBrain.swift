@@ -89,8 +89,11 @@ class CountOnMeBrain {
                     if let secondOperand = Double(stringNumbers[i + 1]) {
                         if operators[i + 1] == "x" {
                             result = firstOperand * secondOperand
-                        } else if operators[i + 1] == "÷" {
+                        } else if operators[i + 1] == "÷" && secondOperand != 0 {
                             result = firstOperand / secondOperand
+                        } else {
+                            countOnMeDelegate?.alertShow(title: "Error!", message: "Dividing by 0 doesn't exist!")
+                            result = 0
                         }
                         stringNumbers[i] = String(result)
                         firstOperand = result
